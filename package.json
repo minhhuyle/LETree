@@ -1,0 +1,27 @@
+{
+  "name": "letree",
+  "version": "1.0.0",
+  "description": "Git interface",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minhhuyle/LETree.git"
+  },
+  "keywords": [
+    "git",
+    "interface"
+  ],
+  "author": "Minh Huy LE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minhhuyle/LETree/issues"
+  },
+  "homepage": "https://github.com/minhhuyle/LETree#readme",
+  "devDependencies": {
+    "electron": "^3.0.6"
+  }
+}
