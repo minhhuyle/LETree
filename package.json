@@ -4,22 +4,19 @@
   "description": "Git interface",
   "main": "mainElectron.js",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
+    "electron": "npm run 'build:Release' && electron .",
+    "package": "npm run 'build:Release' && npm run package-mac && npm run package-win",
+
+    "build:Release": "ng build --base-href ./",
+    "ng": "ng",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "package-mac": "electron-packager . LETree --overwrite --platform=darwin --arch=x64 --out=dist/release --prune=true",
+    "package-win": "electron-packager . LETree --overwrite --platform=win32 --arch=x64 --out=dist/release --prune=true"
 
-
-    "electron": "ng build --base-href ./ && electron .",
-
-
-    "startelec": "tsc main.ts && ng build --base-href ./ && electron .",
-    "start2": "electron .",
-    "package": "npm run package-mac && npm run package-win",
-    "package-mac": "electron-packager . LETree --overwrite --platform=darwin --arch=x64 --out=dist --prune=true",
-    "package-win": "electron-packager . LETree --overwrite --platform=win32 --arch=x64 --out=dist --prune=true"
   },
   "private": true,
   "author": "Minh Huy LE",

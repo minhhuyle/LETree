@@ -4,11 +4,14 @@ const url = require("url");
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 });
+  win = new BrowserWindow({
+    width: 1000, height: 700,
+    minWidth: 1000, minHeight: 700
+  });
 
   win.loadURL(
     url.format({
-      pathname: path.join(__dirname, `/dist/index.html`),
+      pathname: path.join(__dirname, `/dist/app/index.html`),
       protocol: "file:",
       slashes: true
     })
