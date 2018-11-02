@@ -1,7 +1,7 @@
 .header-bar {
   height: 35px;
   width: 100%;
-  display: inline-block;
+  display: flex;
 }
 
 .logo {
@@ -9,9 +9,15 @@
   max-height: 100%;
 }
 
-.frame-action {
+.frame-action-box {
   float: left;
   display: flex;
   height: 100%;
   align-items: center;
+  width: 0;
+}
+
+.header-title-box {
+  flex: 1;
+  justify-content: center;
 }
