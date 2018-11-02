@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "le",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "sass"
