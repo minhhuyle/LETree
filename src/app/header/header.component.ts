@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  private logoIcoUrl : string;
+  private readonly logoIcoUrl : string;
 
   constructor() {
-    this.logoIcoUrl = '/assets/pics/logo/icon.ico'
+    this.logoIcoUrl = 'assets/pics/logo/icon.png'
   }
 
   ngOnInit() {
