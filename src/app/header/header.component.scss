@@ -10,11 +10,9 @@
 }
 
 .frame-action-box {
-  float: left;
-  display: flex;
-  height: 100%;
-  align-items: center;
-  width: 0;
+  position: absolute;
+  align-self: center;
+  margin-left: 8px;
 }
 
 .header-title-box {

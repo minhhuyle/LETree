@@ -1,11 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ContentsComponent } from './contents/contents.component';
-import { FrameActionComponent } from './header/frame-action/frame-action.component';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {ContentsComponent} from './contents/contents.component';
+import {FrameHeaderComponent} from './header/frame-header/frame-header.component';
+import {StoreModule} from "@ngrx/store";
+import {ReduceMap} from "./store/ngrx/StateReduceMap";
 
 @NgModule({
   declarations: [
@@ -13,10 +15,11 @@ import { FrameActionComponent } from './header/frame-action/frame-action.compone
     HeaderComponent,
     FooterComponent,
     ContentsComponent,
-    FrameActionComponent
+    FrameHeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot(ReduceMap)
   ],
   providers: [],
   bootstrap: [AppComponent]

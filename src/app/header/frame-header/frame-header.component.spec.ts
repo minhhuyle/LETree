@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FrameActionComponent } from './frame-action.component';
+import { FrameHeaderComponent } from './frame-header.component';
 
-describe('FrameActionComponent', () => {
-  let component: FrameActionComponent;
-  let fixture: ComponentFixture<FrameActionComponent>;
+describe('FrameHeaderComponent', () => {
+  let component: FrameHeaderComponent;
+  let fixture: ComponentFixture<FrameHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FrameActionComponent ]
+      declarations: [ FrameHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FrameActionComponent);
+    fixture = TestBed.createComponent(FrameHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
