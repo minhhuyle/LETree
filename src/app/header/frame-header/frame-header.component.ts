@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FrameHeaderState} from "../../store/ngrx/frame-header/FrameHeader.state";
 import {Store} from "@ngrx/store";
-import {FrameHeaderHideIcon, FrameHeaderShowIcon} from "../../store/ngrx/frame-header/FrameHeader.action";
 import {StateMap} from "../../store/ngrx/StateReduceMap";
 import {selectStore} from "../../store/ngrx/Store.operator";
+import {ElectronService} from "ngx-electron";
+import {AppElectronState} from "../../store/ngrx/app-electron/AppElectorn.state";
 
 @Component({
   selector: 'le-frame-header',
@@ -12,50 +12,50 @@ import {selectStore} from "../../store/ngrx/Store.operator";
 })
 
 export class FrameHeaderComponent implements OnInit {
+  private appElectronState : AppElectronState;
+  private isInFrameAction : boolean = false;
 
-  private readonly _frameHeader$;
-  private _frameHeader: FrameHeaderState;
-
-  constructor(private store: Store<StateMap>) {
-    this._frameHeader$ = selectStore(store, state => state.frameHeader)
-      .subscribe(value => this._frameHeader = value);
+  constructor(private electronService: ElectronService, private store: Store<StateMap>) {
+    selectStore(this.store, state => state.appElectron)
+      .subscribe(value => {
+        this.appElectronState = value
+      });
   }
 
   private static getAssetPath() {
     return "assets/pics/frame/header";
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+  }
+
+  private getButtonUrlBy(valueInFrame : string, valueNotInFrame) {
+    if(!this.appElectronState.isFocus){
+      return FrameHeaderComponent.getAssetPath() + "/light-gray.png";
+    }
+
+    return (this.isInFrameAction)
+      ? FrameHeaderComponent.getAssetPath() + "/" + valueInFrame + ".png"
+      : FrameHeaderComponent.getAssetPath() + "/" + valueNotInFrame + ".png";
   }
 
   getCloseBtnUrl() {
-    return (this._frameHeader && this._frameHeader.isInFrameAction)
-      ? FrameHeaderComponent.getAssetPath() + "/close.png"
-      : FrameHeaderComponent.getAssetPath() + "/red.png";
+    return this.getButtonUrlBy("close", "red");
   }
 
   getMinimizeBtnUrl() {
-    return (this._frameHeader && this._frameHeader.isInFrameAction)
-      ? FrameHeaderComponent.getAssetPath() + "/minimize.png"
-      : FrameHeaderComponent.getAssetPath() + "/orange.png";
+    return this.getButtonUrlBy("minimize", "orange");
   }
 
   getResizeBtnUrl() {
-    return (this._frameHeader && this._frameHeader.isInFrameAction)
-      ? FrameHeaderComponent.getAssetPath() + "/resize.png"
-      : FrameHeaderComponent.getAssetPath() + "/green.png";
+    return this.getButtonUrlBy("resize", "green");
   }
 
   activeShowActions() {
-    this.store.dispatch(new FrameHeaderShowIcon());
+    this.isInFrameAction = true;
   }
 
   disableShowActions() {
-    this.store.dispatch(new FrameHeaderHideIcon());
-  }
-
-
-  getFrameHeader() {
-    return this._frameHeader$;
+    this.isInFrameAction = false;
   }
 }

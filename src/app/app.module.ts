@@ -8,6 +8,8 @@ import {ContentsComponent} from './contents/contents.component';
 import {FrameHeaderComponent} from './header/frame-header/frame-header.component';
 import {StoreModule} from "@ngrx/store";
 import {ReduceMap} from "./store/ngrx/StateReduceMap";
+import {NgxElectronModule} from "ngx-electron";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {ReduceMap} from "./store/ngrx/StateReduceMap";
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(ReduceMap)
+    AppRoutingModule,
+    StoreModule.forRoot(ReduceMap),
+    NgxElectronModule
   ],
   providers: [],
   bootstrap: [AppComponent]

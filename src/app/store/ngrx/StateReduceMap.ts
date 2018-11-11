@@ -1,10 +1,10 @@
-import {frameHeaderReduce} from "./frame-header/FrameHeader.reducer";
-import {FrameHeaderState} from "./frame-header/FrameHeader.state";
+import {appElectronReduce} from "./app-electron/AppElectron.reducer";
+import {AppElectronState} from "./app-electron/AppElectorn.state";
 
 export interface StateMap {
-  frameHeader: FrameHeaderState
+  appElectron: AppElectronState
 }
 
 export const ReduceMap = {
-  frameHeader: frameHeaderReduce
+  appElectron: appElectronReduce
 };
